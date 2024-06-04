@@ -54,7 +54,8 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   end_ru = DM * ratio_rep_unit
   f_ru = ''
 
-  for i in range(num_it):
+  #if models_option == 'GBM_Morgan fingerprints':
+    for i in range(num_it):
       # Add the DM string ratio_DM times
       f_ru += DM * ratio_rep_unit
     
