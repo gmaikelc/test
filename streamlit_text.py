@@ -84,7 +84,7 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
   num_it = Number_Rep_Unit_2
   
   num_1=1
-  name_left_end= '3MSi0-'
+  name_left_end= '3MSi0'
   name_right_end='-Si3M'
   name_dm = f'-[DM({ratio_rep_unit})]'
   name_pm = f'-[PM({num_1})]'
