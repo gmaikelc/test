@@ -45,7 +45,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
 
   # Number of iterations
   num_it = Number_Rep_Unit_2
- st.write('Number of iterations:', num_it)
+  st.write('Number of iterations:', num_it)
 
   
   # Perform the concatenation for the specified number of iterations
