@@ -59,9 +59,9 @@ if st.button('Press to generate the silicon oil structure based on the parameter
       f_ru += DM * ratio_rep_unit
     
       # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
-      if choice == 'DP':
+      if choice == DP:
           f_ru += DP
-      elif choice == 'PM':
+      elif choice == PM:
           f_ru += PM
 
   n_ru=f_ru+end_ru
