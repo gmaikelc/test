@@ -75,7 +75,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   si_oil_final = si_oil.replace('**', '').replace('I*', '')
   st.write(si_oil_final)
 
-
+num_1=1
 name_left_end= '3MSi0-'
 name_right_end='-Si3M'
 name_dm = f'-[DM({ratio_rep_unit})]'
