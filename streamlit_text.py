@@ -51,15 +51,18 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   # Perform the concatenation for the specified number of iterations
  
   # Initialize the final string with the left end
-  end_ru = DM*ratio_rep_unit
-  f_ru =''
+  end_ru = DM * ratio_rep_unit
+  f_ru = ''
+
   for i in range(num_it):
       # Add the DM string ratio_DM times
       f_ru += DM * ratio_rep_unit
-      if choice=='DP':
-        f_ru+=DP
-      elif choice=='PM':
-        f_ru+=PM
+    
+      # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
+      if choice == 'DP':
+          f_ru += DP
+      elif choice == 'PM':
+          f_ru += PM
 
   n_ru=f_ru+end_ru
 
