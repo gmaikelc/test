@@ -8,7 +8,7 @@ import streamlit as st
 #streamlit run C:\Users\gmaikelc\anaconda3\Lib\site-packages\ipykernel_launcher.py
 
 # Create a layout with 3 columns
-col1, col2, col3 = st.beta_columns(3)
+col1, col2, col3 = st.columns(3)
 
 # Input for 'Degree of polymerization'
 degree_of_polymerization = col1.number_input('Degree of polymerization', min_value=0)
