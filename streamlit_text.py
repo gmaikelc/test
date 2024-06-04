@@ -78,12 +78,12 @@ if st.button('Press to generate the silicon oil structure based on the parameter
 
 name_left_end= '3MSi0-'
 name_right_end='-Si3M'
-name_dm = f'-[DM({ratio_DM})]'
+name_dm = f'-[DM({ratio_rep_unit})]'
 name_pm = f'-[PM({num_1})]'
 name_dp = f'-[DP({num_1})]'
 
 # Specify the number of times to repeat the pattern
-num_repeats = ratio_rep_unit  # For example, repeat the pattern 5 times
+num_repeats = num_it  # For example, repeat the pattern 5 times
 
 # Construct the pattern
 pattern = f'{name_dm}{name_pm}' * num_repeats
