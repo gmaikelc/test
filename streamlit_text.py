@@ -76,7 +76,11 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   st.write(si_oil_final)
 
 if st.button('Press to see the pattern for the assembled silicon oil'):
-
+  Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
+  
+  # Perform the division and get the integer quotient and remainder
+  Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 -2   # Assuming a value for DiMethyl for the code to run
+  ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
   num_1=1
   name_left_end= '3MSi0-'
   name_right_end='-Si3M'
