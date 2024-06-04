@@ -6,16 +6,12 @@
 
 import streamlit as st
 #streamlit run C:\Users\gmaikelc\anaconda3\Lib\site-packages\ipykernel_launcher.py
-# Create a layout with 3 columns
-#col1, col2, col3 = st.beta_columns(3)
 
+# Create a layout with 3 columns
+col1, col2, col3 = st.beta_columns(3)
 
 # Input for 'Degree of polymerization'
 degree_of_polymerization = col1.number_input('Degree of polymerization', min_value=0)
-
-
-
-
 
 # Input for 'Percent'
 percent = col2.number_input('Percent', min_value=0, max_value=100)
