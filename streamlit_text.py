@@ -33,19 +33,19 @@ additional_string = 'ICCC*'
 if st.button('Press to generate the silicon oil structure based on the parameters'):
   # Calculate Number_Rep_Unit_2
   Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
-  print('Number of repeating units:',Number_Rep_Unit_2)
+  st.write('Number of repeating units:',Number_Rep_Unit_2)
 
   # Perform the division and get the integer quotient and remainder
   Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 -2   # Assuming a value for DiMethyl for the code to run
   ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
 
   # Print the results
-  print("Ratio (Integer part):", ratio_rep_unit)
-  print("Remainder:", remainder)
+  st.write("Ratio (Integer part):", ratio_rep_unit)
+  st.write("Remainder:", remainder)
 
   # Number of iterations
   num_it = Number_Rep_Unit_2
-  print('Number of iterations:', num_it)
+ st.write('Number of iterations:', num_it)
 
   
   # Perform the concatenation for the specified number of iterations
@@ -65,8 +65,5 @@ if st.button('Press to generate the silicon oil structure based on the parameter
 
   si_oil=left_end+n_ru+right_end
   
-  # Add the right end to the final string
-  #final_string += right_end
-
   # Print the final string
-  print(si_oil)
+  st.write(si_oil)
