@@ -69,4 +69,8 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   si_oil=left_end+n_ru+right_end
   
   # Print the final string
-  st.write(si_oil)
+  #st.write(si_oil)
+
+ # Remove the patterns
+  si_oil_final = si_oil.replace('**', '').replace('I*', '')
+  st.write(si_oil_final)
