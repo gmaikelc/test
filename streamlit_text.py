@@ -74,3 +74,20 @@ if st.button('Press to generate the silicon oil structure based on the parameter
  # Remove the patterns
   si_oil_final = si_oil.replace('**', '').replace('I*', '')
   st.write(si_oil_final)
+
+
+name_left_end= '3MSi0-'
+name_right_end='-Si3M'
+name_dm = f'-[DM({ratio_DM})]'
+name_pm = f'-[PM({num_1})]'
+name_dp = f'-[DP({num_1})]'
+
+# Specify the number of times to repeat the pattern
+num_repeats = ratio_rep_unit  # For example, repeat the pattern 5 times
+
+# Construct the pattern
+pattern = f'{name_dm}{name_pm}' * num_repeats
+
+# Print the pattern along with left and right ends
+st.write('The pattern for the assembled silicon oil')
+st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
