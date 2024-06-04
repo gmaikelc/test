@@ -75,19 +75,21 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   si_oil_final = si_oil.replace('**', '').replace('I*', '')
   st.write(si_oil_final)
 
-num_1=1
-name_left_end= '3MSi0-'
-name_right_end='-Si3M'
-name_dm = f'-[DM({ratio_rep_unit})]'
-name_pm = f'-[PM({num_1})]'
-name_dp = f'-[DP({num_1})]'
+if st.button('Press to see the pattern for the assembled silicon oil'):
 
-# Specify the number of times to repeat the pattern
-num_repeats = num_it  # For example, repeat the pattern 5 times
+  num_1=1
+  name_left_end= '3MSi0-'
+  name_right_end='-Si3M'
+  name_dm = f'-[DM({ratio_rep_unit})]'
+  name_pm = f'-[PM({num_1})]'
+  name_dp = f'-[DP({num_1})]'
 
-# Construct the pattern
-pattern = f'{name_dm}{name_pm}' * num_repeats
+  # Specify the number of times to repeat the pattern
+  num_repeats = num_it  # For example, repeat the pattern 5 times
 
-# Print the pattern along with left and right ends
-st.write('The pattern for the assembled silicon oil')
-st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
+  # Construct the pattern
+  pattern = f'{name_dm}{name_pm}' * num_repeats
+
+  # Print the pattern along with left and right ends
+  
+  st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
