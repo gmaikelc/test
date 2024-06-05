@@ -105,7 +105,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   
   n_ru=f_ru+end_ru
 
-  si_oil=left_end+n_ru+right_end
+si_oil=left_end+n_ru+right_end
   
   # Print the final string
   #st.write(si_oil)
