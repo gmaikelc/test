@@ -67,8 +67,8 @@ additional_string = 'ICCC*'
 
 def generate_si_oil(choice, percent, degree_of_polymerization):
     # Calculate Number_Rep_Unit_2
-    Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
-    st.write('Number of repeating units:', Number_Rep_Unit_2)
+    Number_Rep_Unit_2 = round(percent/100 * degree_of_polymerization)
+    st.write(f'Number of repeating units for {choice} :', Number_Rep_Unit_2)
 
     # Perform the division and get the integer quotient and remainder
     Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 - 2  # Assuming a value for DiMethyl for the code to run
