@@ -144,25 +144,40 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
   
   st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
 
-#mol = Chem.MolFromSmiles(si_oil_final)
-
-def smiles_to_mol(smiles):
-    mol = Chem.MolFromSmiles(smiles)
-    if mol:
-        mol = Chem.AddHs(mol)
-        AllChem.EmbedMolecule(mol, AllChem.ETKDG())
-        return mol
-    else:
-        return None
-
-def save_mol_file(mol, filename):
-    writer = Chem.SDWriter(filename)
-    writer.write(mol)
-    writer.close()
-
-# Convert SMILES to mol
-mol = smiles_to_mol(si_oil_final)
+mol = Chem.MolFromSmiles(si_oil_final)
+mol = Chem.AddHs(mol)
+AllChem.EmbedMolecule(mol, AllChem.ETKDG())
 
 # Save as a mol file
-save_filename = "output.mol"
-save_mol_file(mol, save_filename)
+save_filename = st.text_input("Enter filename for MOL file")
+if st.button("Save MOL"):
+  with open(save_filename, "w") as f:
+    writer = Chem.SDWriter(f)
+    writer.write(mol)
+    writer.close()
+  st.success(f"Mol file saved as {save_filename}")
+#writer = Chem.SDWriter(filename)
+#writer.write(mol)
+#writer.close()
+
+
+#def smiles_to_mol(smiles):
+ #   mol = Chem.MolFromSmiles(smiles)
+  #  if mol:
+   #     mol = Chem.AddHs(mol)
+    #    AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+     #   return mol
+    #else:
+     #   return None
+
+#def save_mol_file(mol, filename):
+ #   writer = Chem.SDWriter(filename)
+  #  writer.write(mol)
+   # writer.close()
+
+# Convert SMILES to mol
+#mol = smiles_to_mol(si_oil_final)
+
+# Save as a mol file
+#save_filename = "output.mol"
+#save_mol_file(mol, save_filename)
