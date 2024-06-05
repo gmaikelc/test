@@ -65,6 +65,7 @@ additional_string = 'ICCC*'
 
 def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='DM', DP='DP', PM='PM'):
     # Calculate Number_Rep_Unit_2
+    st.write('percent:',percent)
     Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
 
     # Perform the division and get the integer quotient and remainder
