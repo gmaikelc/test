@@ -1,7 +1,42 @@
-#!/usr/bin/env python
-# coding: utf-8
+# -*- coding: utf-8 -*-
+"""
+Created on Fri July 19 17:41:37 2024
 
-# In[ ]:
+@author: Gerardo Casanola
+"""
+
+
+#%% Importing libraries
+
+from pathlib import Path
+import pandas as pd
+import pickle
+from molvs import Standardizer
+from rdkit import Chem
+from openbabel import openbabel
+from mordred import Calculator, descriptors
+from multiprocessing import freeze_support
+import numpy as np
+from rdkit.Chem import AllChem
+import plotly.graph_objects as go
+import networkx as nx
+
+#Import Libraries
+import math 
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import r2_score
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_predict
+from sklearn.linear_model import LinearRegression
+from sklearn import preprocessing
+from sklearn.metrics import mean_squared_error
+
+# packages for streamlit
+import streamlit as st
+from PIL import Image
+import io
+import base64
+import tqdm
 
 
 import streamlit as st
@@ -107,3 +142,26 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
   # Print the pattern along with left and right ends
   
   st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
+
+#mol = Chem.MolFromSmiles(si_oil_final)
+
+def smiles_to_mol(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol:
+        mol = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+        return mol
+    else:
+        return None
+
+def save_mol_file(mol, filename):
+    writer = Chem.SDWriter(filename)
+    writer.write(mol)
+    writer.close()
+
+# Convert SMILES to mol
+mol = smiles_to_mol(si_oil_final)
+
+# Save as a mol file
+save_filename = "output.mol"
+save_mol_file(mol, save_filename)
