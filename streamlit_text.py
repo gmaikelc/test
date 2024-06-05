@@ -142,8 +142,6 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     return si_oil_final
 
 
-
-
 if st.button('Press to see the pattern for the assembled silicon oil'):
   # Example usage:
   si_oil_pattern_generated = generate_si_oil_pattern(choice, percent, degree_of_polymerization)
@@ -152,7 +150,7 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
 if st.button('Press to generate the silicon oil structure based on the parameters'):
 
 # Example usage:
-  si_oil_generated = generate_si_oil(choice='PM', percent=50, degree_of_polymerization=100)
+  si_oil_generated = generate_si_oil(choice, percent, degree_of_polymerization)
   st.write(si_oil_generated)
 
 
