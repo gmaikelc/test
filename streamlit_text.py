@@ -114,9 +114,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     st.write('RU:', choice)
 
     # Perform the concatenation for the specified number of iterations
-    DM = '*[Si](C)(C)OI'
-    DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-    PM = '*[Si](c1ccccc1)(C)OI'
+
     left_end = 'C[Si](C)(C)O*'
     right_end = '*[Si](C)(C)C'
     # Initialize the final string with the left end
