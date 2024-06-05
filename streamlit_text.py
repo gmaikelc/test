@@ -65,9 +65,7 @@ additional_string = 'ICCC*'
 
 
 
-
-
-def generate_si_oil(choice, percent, degree_of_polymerization, DM='DM', DP='DP', PM='PM', left_end='', right_end=''):
+def generate_si_oil(choice, percent, degree_of_polymerization):
     # Calculate Number_Rep_Unit_2
     Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
     st.write('Number of repeating units:', Number_Rep_Unit_2)
@@ -151,7 +149,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
 
 if st.button('Press to see the pattern for the assembled silicon oil'):
   # Example usage:
-  si_oil_pattern_generated = generate_si_oil_pattern(choice='PM', percent=50, degree_of_polymerization=100)
+  si_oil_pattern_generated = generate_si_oil_pattern(choice, percent, degree_of_polymerization)
   st.write(si_oil_pattern_generated)
 
 
