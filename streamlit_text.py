@@ -63,7 +63,7 @@ left_end = 'C[Si](C)(C)O*'
 right_end = '*[Si](C)(C)C'
 additional_string = 'ICCC*'
 
-def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='-DM', DP='-DP', PM='-PM'):
+def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='DM', DP='DP', PM='PM'):
     # Calculate Number_Rep_Unit_2
     Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
 
@@ -76,9 +76,9 @@ def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, 
     num_repeats = num_it
 
     # Define name_dm, name_pm, and name_dp based on ratio_rep_unit and num_1
-    name_dm = f'{DM}({ratio_rep_unit})'
-    name_pm = f'{PM}({num_1})'
-    name_dp = f'{DP}({num_1})'
+    name_dm = f'-[{DM}({ratio_rep_unit})]'
+    name_pm = f'-[{PM}({num_1})]'
+    name_dp = f'-[{DP}({num_1})]'
 
     # Construct the pattern based on the choice
     if choice == 'DP':
