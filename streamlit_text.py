@@ -136,7 +136,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
             f_ru += DM * ratio_rep_unit
             f_ru += DP
             
-    st.write('one chain:', DP)
+    st.write('one chain PM:', PM)
 
     n_ru = f_ru + end_ru
 
