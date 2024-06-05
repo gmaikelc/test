@@ -67,6 +67,7 @@ additional_string = 'ICCC*'
 
 def generate_si_oil(choice, percent, degree_of_polymerization):
     # Calculate Number_Rep_Unit_2
+    st.write('percent:',percent)
     Number_Rep_Unit_2 = round(percent/100 * degree_of_polymerization)
     st.write(f'Number of repeating units for {choice} :', Number_Rep_Unit_2)
 
