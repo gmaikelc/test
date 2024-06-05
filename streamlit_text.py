@@ -39,8 +39,6 @@ import base64
 
 
 
-import streamlit as st
-#streamlit run C:\Users\gmaikelc\anaconda3\Lib\site-packages\ipykernel_launcher.py
 
 # Create a layout with 3 columns
 col1, col2, col3 = st.columns(3)
@@ -65,84 +63,97 @@ left_end = 'C[Si](C)(C)O*'
 right_end = '*[Si](C)(C)C'
 additional_string = 'ICCC*'
 
+
+
+
+
+def generate_si_oil(choice, percent, degree_of_polymerization, DM='DM', DP='DP', PM='PM', left_end='', right_end=''):
+    # Calculate Number_Rep_Unit_2
+    Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
+    st.write('Number of repeating units:', Number_Rep_Unit_2)
+
+    # Perform the division and get the integer quotient and remainder
+    Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 - 2  # Assuming a value for DiMethyl for the code to run
+    ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
+
+    # Print the results
+    st.write("Ratio (Integer part):", ratio_rep_unit)
+    st.write("Remainder:", remainder)
+
+    # Number of iterations
+    num_it = Number_Rep_Unit_2
+    st.write('Number of iterations:', num_it)
+    st.write('RU:', choice)
+
+    # Perform the concatenation for the specified number of iterations
+
+    # Initialize the final string with the left end
+    end_ru = DM * ratio_rep_unit
+    f_ru = ''
+
+    # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
+    if choice == 'PM':
+        for i in range(num_it):
+            # Add the DM string ratio_DM times
+            f_ru += DM * ratio_rep_unit
+            f_ru += PM
+
+    if choice == 'DP':
+        for i in range(num_it):
+            # Add the DM string ratio_DM times
+            f_ru += DM * ratio_rep_unit
+            f_ru += DP
+
+    n_ru = f_ru + end_ru
+
+    si_oil = left_end + n_ru + right_end
+
+    # Remove the patterns
+    si_oil_final = si_oil.replace('**', '').replace('I*', '')
+
+    return si_oil_final
+
+def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='-DM', DP='-DP', PM='-PM'):
+    # Calculate Number_Rep_Unit_2
+    Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
+
+    # Perform the division and get the integer quotient and remainder
+    Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 - 2  # Assuming a value for DiMethyl for the code to run
+    ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
+    num_it = Number_Rep_Unit_2
+
+    # Specify the number of times to repeat the pattern
+    num_repeats = num_it
+
+    # Define name_dm, name_pm, and name_dp based on ratio_rep_unit and num_1
+    name_dm = f'{DM}({ratio_rep_unit})'
+    name_pm = f'{PM}({num_1})'
+    name_dp = f'{DP}({num_1})'
+
+    # Construct the pattern based on the choice
+    if choice == 'DP':
+        pattern = f'{name_dm}{name_dp}' * num_repeats
+    elif choice == 'PM':
+        pattern = f'{name_dm}{name_pm}' * num_repeats
+    else:
+        pattern = ''  # Handle invalid choice gracefully
+
+    # Print the pattern along with left and right ends
+    si_oil_pattern = f'{name_left_end}{pattern}{name_dm}{name_right_end}'
+
+    return si_oil_pattern
+
 if st.button('Press to generate the silicon oil structure based on the parameters'):
-  # Calculate Number_Rep_Unit_2
-  Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
-  st.write('Number of repeating units:',Number_Rep_Unit_2)
 
-  # Perform the division and get the integer quotient and remainder
-  Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 -2   # Assuming a value for DiMethyl for the code to run
-  ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
-
-  # Print the results
-  st.write("Ratio (Integer part):", ratio_rep_unit)
-  st.write("Remainder:", remainder)
-
-  # Number of iterations
-  num_it = Number_Rep_Unit_2
-  st.write('Number of iterations:', num_it)
-  st.write('RU:',choice)
-  
-  # Perform the concatenation for the specified number of iterations
- 
-  # Initialize the final string with the left end
-  end_ru = DM * ratio_rep_unit
-  f_ru = ''
-
-   # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
-  if choice == 'PM':
-    for i in range(num_it):
-       #Add the DM string ratio_DM times
-       f_ru += DM * ratio_rep_unit
-       f_ru += PM
-    
-     
-  if choice == 'DP':
-      for i in range(num_it):  
-        #Add the DM string ratio_DM times
-        f_ru += DM * ratio_rep_unit
-        f_ru += DP
-  
-  n_ru=f_ru+end_ru
-
-  si_oil=left_end+n_ru+right_end
-  
-  # Print the final string
-  #st.write(si_oil)
-
- # Remove the patterns
-  si_oil_final = si_oil.replace('**', '').replace('I*', '')
-  #st.write(si_oil_final)
-
+# Example usage:
+  si_oil_generated = generate_si_oil(choice='PM', percent=50, degree_of_polymerization=100)
+  st.write(si_oil_generated)
 
 if st.button('Press to see the pattern for the assembled silicon oil'):
-  Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
-  
-  # Perform the division and get the integer quotient and remainder
-  Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 -2   # Assuming a value for DiMethyl for the code to run
-  ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
-  num_it = Number_Rep_Unit_2
-  
-  num_1=1
-  name_left_end= '3MSi0'
-  name_right_end='-Si3M'
-  name_dm = f'-[DM({ratio_rep_unit})]'
-  name_pm = f'-[PM({num_1})]'
-  name_dp = f'-[DP({num_1})]'
-  # Specify the number of times to repeat the pattern
-  num_repeats = num_it  # For example, repeat the pattern 5 times
-  
-  if choice == 'DP':
-    # Construct the pattern
-    pattern = f'{name_dm}{name_dp}' * num_repeats
+  # Example usage:
+  si_oil_pattern_generated = generate_si_oil_pattern(choice='PM', percent=50, degree_of_polymerization=100)
+  st.write(si_oil_pattern_generated)
 
-  if choice == 'PM':
-    # Construct the pattern
-    pattern = f'{name_dm}{name_pm}' * num_repeats
-
-  # Print the pattern along with left and right ends
-  
-  st.write(f'{name_left_end}{pattern}{name_dm}{name_right_end}')
 
 #mol = Chem.MolFromSmiles(si_oil_final)
 #mol = Chem.AddHs(mol)
