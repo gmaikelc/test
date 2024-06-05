@@ -63,9 +63,37 @@ left_end = 'C[Si](C)(C)O*'
 right_end = '*[Si](C)(C)C'
 additional_string = 'ICCC*'
 
+def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='-DM', DP='-DP', PM='-PM'):
+    # Calculate Number_Rep_Unit_2
+    Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
 
+    # Perform the division and get the integer quotient and remainder
+    Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 - 2  # Assuming a value for DiMethyl for the code to run
+    ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
+    num_it = Number_Rep_Unit_2
 
-def generate_si_oil(choice, percent, degree_of_polymerization):
+    # Specify the number of times to repeat the pattern
+    num_repeats = num_it
+
+    # Define name_dm, name_pm, and name_dp based on ratio_rep_unit and num_1
+    name_dm = f'{DM}({ratio_rep_unit})'
+    name_pm = f'{PM}({num_1})'
+    name_dp = f'{DP}({num_1})'
+
+    # Construct the pattern based on the choice
+    if choice == 'DP':
+        pattern = f'{name_dm}{name_dp}' * num_repeats
+    elif choice == 'PM':
+        pattern = f'{name_dm}{name_pm}' * num_repeats
+    else:
+        pattern = ''  # Handle invalid choice gracefully
+
+    # Print the pattern along with left and right ends
+    si_oil_pattern = f'{name_left_end}{pattern}{name_dm}{name_right_end}'
+
+    return si_oil_pattern
+
+def generate_si_oil(choice, percent=10, degree_of_polymerization):
     # Calculate Number_Rep_Unit_2
     st.write('percent:',percent)
     Number_Rep_Unit_2 = round(percent/100 * degree_of_polymerization)
@@ -112,35 +140,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
 
     return si_oil_final
 
-def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='-DM', DP='-DP', PM='-PM'):
-    # Calculate Number_Rep_Unit_2
-    Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
 
-    # Perform the division and get the integer quotient and remainder
-    Number_Rep_Unit_1 = degree_of_polymerization - Number_Rep_Unit_2 - 2  # Assuming a value for DiMethyl for the code to run
-    ratio_rep_unit, remainder = divmod(Number_Rep_Unit_1, Number_Rep_Unit_2 + 1)
-    num_it = Number_Rep_Unit_2
-
-    # Specify the number of times to repeat the pattern
-    num_repeats = num_it
-
-    # Define name_dm, name_pm, and name_dp based on ratio_rep_unit and num_1
-    name_dm = f'{DM}({ratio_rep_unit})'
-    name_pm = f'{PM}({num_1})'
-    name_dp = f'{DP}({num_1})'
-
-    # Construct the pattern based on the choice
-    if choice == 'DP':
-        pattern = f'{name_dm}{name_dp}' * num_repeats
-    elif choice == 'PM':
-        pattern = f'{name_dm}{name_pm}' * num_repeats
-    else:
-        pattern = ''  # Handle invalid choice gracefully
-
-    # Print the pattern along with left and right ends
-    si_oil_pattern = f'{name_left_end}{pattern}{name_dm}{name_right_end}'
-
-    return si_oil_pattern
 
 
 if st.button('Press to see the pattern for the assembled silicon oil'):
