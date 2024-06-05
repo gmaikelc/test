@@ -111,8 +111,8 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   #st.write(si_oil)
 
  # Remove the patterns
-  si_oil_final = si_oil.replace('**', '').replace('I*', '')
-  st.write(si_oil_final)
+si_oil_final = si_oil.replace('**', '').replace('I*', '')
+st.write(si_oil_final)
 
 if st.button('Press to see the pattern for the assembled silicon oil'):
   Number_Rep_Unit_2 = round(percent / 100 * degree_of_polymerization)
