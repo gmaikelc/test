@@ -54,17 +54,20 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   end_ru = DM * ratio_rep_unit
   f_ru = ''
 
-  #if models_option == 'GBM_Morgan fingerprints':
+   # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
+  if choice == 'PM':
     for i in range(num_it):
-      # Add the DM string ratio_DM times
-      f_ru += DM * ratio_rep_unit
+       #Add the DM string ratio_DM times
+       f_ru += DM * ratio_rep_unit
+       ff_ru += PM
     
-      # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
-      if choice == DP:
-          f_ru += DP
-      elif choice == PM:
-          f_ru += PM
-
+     
+  if choice == 'DP':
+      for i in range(num_it):  
+        #Add the DM string ratio_DM times
+        f_ru += DM * ratio_rep_unit
+        f_ru += DP
+  
   n_ru=f_ru+end_ru
 
   si_oil=left_end+n_ru+right_end
@@ -90,12 +93,16 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
   name_dm = f'-[DM({ratio_rep_unit})]'
   name_pm = f'-[PM({num_1})]'
   name_dp = f'-[DP({num_1})]'
-
   # Specify the number of times to repeat the pattern
   num_repeats = num_it  # For example, repeat the pattern 5 times
+  
+  if choice == 'DP':
+    # Construct the pattern
+    pattern = f'{name_dm}{name_dp}' * num_repeats
 
-  # Construct the pattern
-  pattern = f'{name_dm}{name_pm}' * num_repeats
+  if choice == 'PM':
+    # Construct the pattern
+    pattern = f'{name_dm}{name_pm}' * num_repeats
 
   # Print the pattern along with left and right ends
   
