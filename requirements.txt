@@ -5,7 +5,6 @@ streamlit
 openbabel-wheel
 rdkit
 molvs
-mordred
 plotly
 scikit-learn
 stmol
