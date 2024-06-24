@@ -149,6 +149,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     st.write('PM:', PMv)
     st.write('DP:', DPv)
     st.write('DM:',DMv)
+    st.write('end_ru:',end_ru)
     # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
     if choice == 'PM':
         for i in range(num_it):
