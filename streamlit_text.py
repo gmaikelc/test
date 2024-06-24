@@ -136,7 +136,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     # Define the strings
     DM = '*[Si](C)(C)OI'
     DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-    PM = '*[Si](c1ccccc1)(C)OI'
+    PMv = '*[Si](c1ccccc1)(C)OI'
     left_end = 'C[Si](C)(C)O*'
     right_end = '*[Si](C)(C)C'
     # Initialize the final string with the left end
@@ -155,7 +155,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
             f_ru += (DM * ratio_rep_unit) + DP
             
             
-    st.write('one chain PM:', PM)
+    st.write('one chain PM:', PMv)
 
     n_ru = f_ru + end_ru
 
