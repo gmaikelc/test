@@ -134,9 +134,9 @@ def generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM):
 
     # Perform the concatenation for the specified number of iterations
     # Define the strings
-    DM = '*[Si](C)(C)OI'
-    DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-    PMv = '*[Si](c1ccccc1)(C)OI'
+    #DM = '*[Si](C)(C)OI'
+    #DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
+    #PM = '*[Si](c1ccccc1)(C)OI'
     left_end = 'C[Si](C)(C)O*'
     right_end = '*[Si](C)(C)C'
     # Initialize the final string with the left end
@@ -176,6 +176,10 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
 
 if st.button('Press to generate the silicon oil structure based on the parameters'):
 
+# Define the strings
+    DM = '*[Si](C)(C)OI'
+    DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
+    PM = '*[Si](c1ccccc1)(C)OI'
 # Example usage:
   si_oil_generated = generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM)
   st.write(si_oil_generated)
