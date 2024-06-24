@@ -113,7 +113,7 @@ def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, 
 
     return si_oil_pattern
 
-def generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM):
+def generate_si_oil(choice, percent, degree_of_polymerization):
     # Calculate Number_Rep_Unit_2
     st.write('percent:',percent)
     Number_Rep_Unit_2 = round(percent/100 * degree_of_polymerization)
@@ -134,27 +134,27 @@ def generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM):
 
     # Perform the concatenation for the specified number of iterations
     # Define the strings
-    #DM = '*[Si](C)(C)OI'
-    #DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-    #PM = '*[Si](c1ccccc1)(C)OI'
+    DMv = '*[Si](C)(C)OI'
+    DPv = '*[Si](c1ccccc1)(c1ccccc1)OI'
+    PMv = '*[Si](c1ccccc1)(C)OI'
     left_end = 'C[Si](C)(C)O*'
     right_end = '*[Si](C)(C)C'
     # Initialize the final string with the left end
-    end_ru = DM * ratio_rep_unit
+    end_ru = DMv * ratio_rep_unit
     f_ru = ''
-    st.write('PM:', PM)
-    st.write('DP:', DP)
+    st.write('PM:', PMv)
+    st.write('DP:', DPv)
 
     # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
     if choice == 'PM':
         for i in range(num_it):
             # Add the DM string ratio_DM times
-            f_ru += (DM * ratio_rep_unit) + PM
+            f_ru += (DMv * ratio_rep_unit) + PMv
 
     if choice == 'DP':
         for i in range(num_it):
             # Add the DM string ratio_DM times
-            f_ru += (DM * ratio_rep_unit) + DP
+            f_ru += (DMv * ratio_rep_unit) + DPv
             
             
     st.write('one chain PM:', PM)
