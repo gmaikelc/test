@@ -135,7 +135,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
 
     # Perform the concatenation for the specified number of iterations
     # Define the strings
-    DMv = '*[Si](C)(C)OI'
+    DMv = "*[Si](C)(C)OI"
     DPv = '*[Si](c1ccccc1)(c1ccccc1)OI'
     PMv = '*[Si](c1ccccc1)(C)OI'
     #DPv = 'ICCC*'
