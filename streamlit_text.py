@@ -75,14 +75,12 @@ choice = col3.selectbox('Choose an option', options)
 st.write(f"You entered {degree_of_polymerization} for Degree of polymerization, {percent}% for Percent, and selected {choice} from the dropdown.")
 
 # Define the strings
-#DM = '*[Si](C)(C)OI'
-#DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-#PM = '*[Si](c1ccccc1)(C)OI'
+DM = '*[Si](C)(C)OI'
+DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
+PM = '*[Si](c1ccccc1)(C)OI'
 left_end = 'C[Si](C)(C)O*'
 right_end = '*[Si](C)(C)C'
-DP = 'ICCC*'
-DM = 'ISC*'
-PM = 'ICCCCCC*'
+
 def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='DM', DP='DP', PM='PM'):
     # Calculate Number_Rep_Unit_2
     st.write('percent:',percent)
@@ -134,22 +132,11 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     st.write('RU:', choice)
 
     # Perform the concatenation for the specified number of iterations
-    # Define the strings
-    DMv = "*[Si](C)(C)OI"
-    DPv = '*[Si](c1ccccc1)(c1ccccc1)OI'
-    PMv = '*[Si](c1ccccc1)(C)OI'
-    #DPv = 'ICCC*'
-    #DMv = 'ISC*'
-    #PMv = 'ICCCCCC*'
-    left_end = 'C[Si](C)(C)O*'
-    right_end = '*[Si](C)(C)C'
+
     # Initialize the final string with the left end
     end_ru = DMv * ratio_rep_unit
     f_ru = ''
-    st.write('PM:', PMv)
-    st.write('DP:', DPv)
-    st.write('DM:',DMv)
-    st.write('end_ru:',end_ru)
+
     # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
     if choice == 'PM':
         for i in range(num_it):
@@ -162,9 +149,6 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
             f_ru += (DMv * ratio_rep_unit) + DPv
             
             
-    st.write('one chain PM:', PMv)
-    st.write(f_ru)
-
     n_ru = f_ru + end_ru
 
     si_oil = left_end + n_ru + right_end
@@ -182,10 +166,6 @@ if st.button('Press to see the pattern for the assembled silicon oil'):
 
 if st.button('Press to generate the silicon oil structure based on the parameters'):
 
-# Define the strings
-  DM = '*[Si](C)(C)OI'
-  DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-  PM = '*[Si](c1ccccc1)(C)OI'
 # Example usage:
   si_oil_generated = generate_si_oil(choice, percent, degree_of_polymerization)
   st.write(si_oil_generated)
