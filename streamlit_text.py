@@ -142,8 +142,8 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     # Initialize the final string with the left end
     end_ru = DM * ratio_rep_unit
     f_ru = ''
-    st.write('PM': PM)
-    st.write('DP': DP)
+    st.write('PM:' PM)
+    st.write('DP:' DP)
 
     # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
     if choice == 'PM':
