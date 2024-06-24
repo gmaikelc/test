@@ -134,7 +134,7 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     # Perform the concatenation for the specified number of iterations
 
     # Initialize the final string with the left end
-    end_ru = DMv * ratio_rep_unit
+    end_ru = DM * ratio_rep_unit
     f_ru = ''
 
     # Depending on the choice, add the string DP or PM at the end of f_ru after each iteration
