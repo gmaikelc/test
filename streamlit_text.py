@@ -176,16 +176,16 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   AllChem.EmbedMolecule(mol, AllChem.ETKDG())
 
  # Save as a mol file
- save_filename = st.text_input("Enter filename for MOL file")
- if st.button("Save MOL"):
-   with open(save_filename, "w") as f:
-     writer = Chem.SDWriter(f)
-     writer.write(mol)
-     writer.close()
-   st.success(f"Mol file saved as {save_filename}")
- writer = Chem.SDWriter(filename)
- writer.write(mol)
- writer.close()
+ #save_filename = st.text_input("Enter filename for MOL file")
+ #if st.button("Save MOL"):
+   #with open(save_filename, "w") as f:
+     #writer = Chem.SDWriter(f)
+     #writer.write(mol)
+     #writer.close()
+   #st.success(f"Mol file saved as {save_filename}")
+ #writer = Chem.SDWriter(filename)
+ #writer.write(mol)
+ #writer.close()
 
 
 #def smiles_to_mol(smiles):
