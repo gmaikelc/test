@@ -181,7 +181,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
   PM = '*[Si](c1ccccc1)(C)OI'
 # Example usage:
-  si_oil_generated = generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM)
+  si_oil_generated = generate_si_oil(choice, percent, degree_of_polymerization)
   st.write(si_oil_generated)
 
 
