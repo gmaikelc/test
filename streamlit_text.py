@@ -113,7 +113,7 @@ def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, 
 
     return si_oil_pattern
 
-def generate_si_oil(choice, percent, degree_of_polymerization):
+def generate_si_oil(choice, percent, degree_of_polymerization,DM,DP,PM):
     # Calculate Number_Rep_Unit_2
     st.write('percent:',percent)
     Number_Rep_Unit_2 = round(percent/100 * degree_of_polymerization)
