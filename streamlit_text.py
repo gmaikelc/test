@@ -141,12 +141,12 @@ def generate_si_oil(choice, percent, degree_of_polymerization):
     if choice == 'PM':
         for i in range(num_it):
             # Add the DM string ratio_DM times
-            f_ru += (DMv * ratio_rep_unit) + PMv
+            f_ru += (DM * ratio_rep_unit) + PM
 
     if choice == 'DP':
         for i in range(num_it):
             # Add the DM string ratio_DM times
-            f_ru += (DMv * ratio_rep_unit) + DPv
+            f_ru += (DM * ratio_rep_unit) + DP
             
             
     n_ru = f_ru + end_ru
@@ -171,21 +171,21 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   st.write(si_oil_generated)
 
 
-#mol = Chem.MolFromSmiles(si_oil_final)
-#mol = Chem.AddHs(mol)
-#AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+mol = Chem.MolFromSmiles(si_oil_final)
+mol = Chem.AddHs(mol)
+AllChem.EmbedMolecule(mol, AllChem.ETKDG())
 
 # Save as a mol file
-#save_filename = st.text_input("Enter filename for MOL file")
-#if st.button("Save MOL"):
- # with open(save_filename, "w") as f:
-  #  writer = Chem.SDWriter(f)
-   # writer.write(mol)
-   # writer.close()
-  #st.success(f"Mol file saved as {save_filename}")
-#writer = Chem.SDWriter(filename)
-#writer.write(mol)
-#writer.close()
+save_filename = st.text_input("Enter filename for MOL file")
+if st.button("Save MOL"):
+  with open(save_filename, "w") as f:
+    writer = Chem.SDWriter(f)
+    writer.write(mol)
+    writer.close()
+  st.success(f"Mol file saved as {save_filename}")
+writer = Chem.SDWriter(filename)
+writer.write(mol)
+writer.close()
 
 
 #def smiles_to_mol(smiles):
