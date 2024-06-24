@@ -171,7 +171,7 @@ if st.button('Press to generate the silicon oil structure based on the parameter
   st.write(si_oil_generated)
 
 
-mol = Chem.MolFromSmiles(si_oil_final)
+mol = Chem.MolFromSmiles(si_oil_generated)
 mol = Chem.AddHs(mol)
 AllChem.EmbedMolecule(mol, AllChem.ETKDG())
 
