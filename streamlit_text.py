@@ -75,13 +75,14 @@ choice = col3.selectbox('Choose an option', options)
 st.write(f"You entered {degree_of_polymerization} for Degree of polymerization, {percent}% for Percent, and selected {choice} from the dropdown.")
 
 # Define the strings
-DM = '*[Si](C)(C)OI'
-DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
-PM = '*[Si](c1ccccc1)(C)OI'
+#DM = '*[Si](C)(C)OI'
+#DP = '*[Si](c1ccccc1)(c1ccccc1)OI'
+#PM = '*[Si](c1ccccc1)(C)OI'
 left_end = 'C[Si](C)(C)O*'
 right_end = '*[Si](C)(C)C'
-additional_string = 'ICCC*'
-
+DP = 'ICCC*'
+DM = 'ISC*'
+PM = 'ICCCCCC*'
 def generate_si_oil_pattern(choice, percent, degree_of_polymerization, num_1=1, name_left_end='3MSi0', name_right_end='-Si3M', DM='DM', DP='DP', PM='PM'):
     # Calculate Number_Rep_Unit_2
     st.write('percent:',percent)
