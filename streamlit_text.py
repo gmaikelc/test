@@ -57,7 +57,22 @@ from PIL import Image
 import uuid
 from filelock import Timeout, FileLock
 
+#%% PAGE CONFIG
 
+#---------------------------------#
+# Page layout
+## Page expands to full width
+st.set_page_config(page_title='Coating perfomance predictor', page_icon=":computer:", layout='wide')
+
+######
+# Function to put a picture as header   
+def img_to_bytes(img_path):
+    img_bytes = Path(img_path).read_bytes()
+    encoded = base64.b64encode(img_bytes).decode()
+    return encoded
+
+image = Image.open('cropped_header.png')
+st.image(image)
 
 # Create a layout with 3 columns
 col1, col2, col3 = st.columns(3)
